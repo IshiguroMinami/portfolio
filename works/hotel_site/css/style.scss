@@ -1,0 +1,624 @@
+@charset "UTF-8";
+// =========================
+// 変数
+// =========================
+$primary-color: #ff7e3d;
+$hover-color: #4e86f8;
+$footer-bg: rgba(34, 34, 34, 0.36);
+$room-bg: #fdf3e7;
+$contact-bg: #fdf3e7;
+$secondary-color: #4e86f8;
+
+$font-main: 'Roboto', sans-serif;
+$font-weight-thin: 100;
+
+$transition: all 0.3s ease;
+
+// =========================
+// 共通
+// =========================
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  background-color: rgba(255, 232, 205, 0.796);
+  background-size: cover;
+  background-position: center;
+  color: $primary-color;
+  overflow-x: hidden;
+  letter-spacing: 0.25em;
+}
+
+.section-title {
+  padding: 30px;
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: 0.2em;
+  font-weight: $font-weight-thin;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// =========================
+// ヘッダー
+// =========================
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  z-index: 1000;
+  background-color: rgba(209, 209, 209, 0.63);
+
+  .header-logo {
+    img {
+      height: 40px;
+    }
+  }
+
+  // ナビゲーション
+  .header-nav {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    ul {
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        color: $primary-color;
+        text-decoration: none;
+        font-size: 16px;
+        letter-spacing: 0.25em;
+        transition: $transition;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+
+    // モバイルで開閉するスタイル
+    &.active {
+      max-height: 300px;
+    }
+  }
+
+  // ハンバーガーメニュー（デフォルト非表示）
+  .header-menu-toggle {
+    display: none;
+    width: 30px;
+    height: 24px;
+    position: relative; // span を絶対配置
+    cursor: pointer;
+  
+    span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $primary-color;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+  
+    span:nth-child(1) { top: 0; }
+    span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    span:nth-child(3) { bottom: 0; }
+  
+    &.open {
+      span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { top: 50%; transform: translateY(-50%) rotate(-45deg); }
+    }
+  }
+  
+}
+
+// =========================
+// キービジュアル
+// =========================
+.kv {
+  position: relative;
+
+  .slider {
+    width: 100%;
+    display: none;
+    
+    img {
+      width: 100%;
+      height: 80vh;           // 親要素と同じ高さ
+      object-fit: cover;      // 比率を維持して切り抜き
+      object-position: center; // 画像の中心を表示
+      //display: block;
+    }
+  }
+  .slick-initialized {
+    display: block !important;
+  }
+
+
+  .kv-copy {
+    position:  absolute;         /* 要素の配置方法をと子要素の起点を指定 */
+    top: 50%;
+    left: 10%;
+    transform: translateX(-50%);
+    color: $primary-color;
+    opacity: 0;
+    transition: all 1s ease;
+
+    &.show {
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      background-color: rgba(255, 232, 205, 0.517);
+      padding: 10px 20px;
+      font-weight: $font-weight-thin;
+      letter-spacing: 0.6em;
+    }
+
+    h2 {
+      font-size: 1rem;
+      background-color: rgba(255, 232, 205, 0.517);
+      padding: 10px 20px;
+      font-weight: $font-weight-thin;
+      letter-spacing: 0.5em;
+    }
+  }
+}
+
+// =========================
+// コンセプト
+// =========================
+.concept {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+
+
+  .concept-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+    gap: 40px;
+
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .concept-img {
+      flex: 1;
+      max-width: 600px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .concept-text {
+      flex: 1;
+      padding: 0 20px;
+      letter-spacing: 0.5em;
+
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        letter-spacing: 0.8em;
+        background-color: rgba(250, 242, 233, 0.8);
+        padding: 5px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// =========================
+// ROOM
+// =========================
+.room {
+  background-color: $room-bg;
+  width: 100%;
+  padding: 80px 20px;
+
+
+
+  .room-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+
+    .room-card {
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .room-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .room-text {
+        padding: 20px;
+
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+          letter-spacing: 0.3em;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.4;
+          letter-spacing: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+// =========================
+// アクセス
+// =========================
+.access {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .access-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+
+    .access-map iframe {
+      width: 100%;       // 横幅いっぱい
+      height: 400px;     // PC用の高さ
+      border-radius: 10px;
+    }
+
+    .access-text {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+// =========================
+// 予約
+// =========================
+.reservation {
+  text-align: left;
+  background-color: $room-bg;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.btn-reserve {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 12px 20px;
+  background-color: $primary-color;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+
+// =========================
+// コンタクト
+// =========================
+.contact {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  background-color: $contact-bg;
+  border-radius: 30px;
+
+  .contact-content {
+    gap: 40px;
+    flex-wrap: wrap;
+
+    .contact-text {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .contact-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        input, textarea {
+          padding: 10px;
+          border-radius: 6px;
+          border: 1px solid #ccc;
+          font-size: 1rem;
+          font-family: inherit;
+        }
+      }
+
+      button {
+        padding: 12px;
+        border: none;
+        background-color: $primary-color;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+// =========================
+// フッター
+// =========================
+.footer {
+  background-color: $footer-bg;
+  color: #fff;
+  padding: 20px 40px;
+  font-size: 0.9rem;
+  text-align: center;
+
+  a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .footer-logo h3 {
+    font-size: 1.8rem;
+    margin: 10px;
+  }
+
+  .footer-social a {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom {
+    padding-top: 10px;
+  }
+}
+
+// =========================
+// レスポンシブ
+// =========================
+@media (max-width: 768px) {
+  body {
+    font-size: 0.7rem;
+  }
+  .section-title {
+    font-size: 1rem;
+    padding: 20px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 0.7rem;
+  }
+
+  .header {
+    padding: 15px 20px;
+
+    .header-nav {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      background-color: rgba(255, 232, 205, 0.95);
+      max-height: 0; // 初期状態は閉じる
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      ul {
+        flex-direction: column;
+        gap: 0;
+
+        li {
+          margin: 15px 0;
+          text-align: center;
+        }
+      }
+    }
+    .header-nav.active {
+      max-height: 1000px; // 高さ大きめに
+    }
+
+    .header-menu-toggle {
+      display: flex !important;
+    }
+  }
+  .kv .slider {
+    height: 60vh;
+  }
+  .kv .slider img {
+    height: 60vh;
+    object-fit: cover;       /* 比率を維持しつつ拡大 */
+    object-position: center;
+  }
+
+  .kv .kv-copy h1 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    font-weight: 100;
+    letter-spacing: 0.6em;
+    font-weight: bold;
+  }
+
+  .kv .kv-copy h2 {
+    font-size: 0.7rem;
+    background-color: rgba(255, 232, 205, 0.517);
+    padding: 5px 10px;
+    font-weight: 100;
+    letter-spacing: 0.5em;
+}
+  .concept {
+    padding: 40px 10px;
+  }
+
+  .concept .concept-item {
+    display: block
+  }
+
+  .concept-text {
+    margin: 15px 0;
+    padding: 0;
+  }
+  .concept .concept-item .concept-text h3 {
+    font-size: 1rem;
+  }
+  .concept .concept-item .concept-text p {
+    font-size: 0.7rem;
+  }
+  .concept .concept-item .concept-text {
+    padding: 0;
+  }
+
+  .room-cards {
+    flex-direction: column;
+
+    .room-card {
+      margin-bottom: 30px;
+    }
+  }
+  .room .room-cards .room-card .room-text h3 {
+    font-size: 1rem;
+  }
+  .room .room-cards .room-card .room-text p {
+    font-size: 0.7rem;
+  }
+  .access .access-content {
+    display: block;
+  }
+
+  .access-content {
+    flex-direction: column;
+
+    .access-map iframe {
+      height: 300px;     // スマホ用高さ
+      max-width: 100%;   // はみ出さない
+      margin: 0 auto;    // 中央寄せ
+      padding: 0 15px;   // 左右に余白
+      box-sizing: border-box;
+    }
+
+    .access-text {
+      padding: 20px 15px 0 15px;
+    }
+  }
+  .access .access-content .access-text h3 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  .btn-reserve {
+    font-size: 0.7rem;
+  }
+
+  .footer {
+    padding: 20px;
+
+    .footer-top {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-social {
+      margin-top: 10px;
+    }
+
+    .footer-logo h3 {
+      font-size: 1rem;
+  }
+}
+}

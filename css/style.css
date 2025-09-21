@@ -1,0 +1,443 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background-image: url(../img/keyvisual.png);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  z-index: 1000;
+  color: #fff;
+}
+.header .header-logo img {
+  height: 40px;
+}
+@media (max-width: 768px) {
+  .header .header-logo img {
+    height: 34px;
+  }
+}
+@media (max-width: 480px) {
+  .header .header-logo img {
+    height: 30px;
+  }
+}
+.header .header-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header .header-nav li {
+  margin-left: 30px;
+}
+.header .header-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+  letter-spacing: 0.1em;
+}
+.header .header-nav a:hover {
+  color: #ccc;
+}
+@media (max-width: 480px) {
+  .header .header-nav a {
+    font-size: 14px;
+    letter-spacing: 0.06em;
+  }
+}
+@media (max-width: 768px) {
+  .header .header-nav ul {
+    gap: 16px;
+  }
+  .header .header-nav li {
+    margin-left: 18px;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 30px;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 18px;
+  }
+}
+
+.key-visual {
+  display: flex;
+  justify-content: center; /* h1を中央 */
+  align-items: center; /* 横中央 */
+  min-height: calc(100vh - 60px); /* footer の高さ分を引く */
+  text-align: center;
+  color: #fff;
+}
+.key-visual .key-visual-text {
+  font-size: 48px;
+  flex: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 5s ease-out;
+  letter-spacing: 0.2em;
+}
+.key-visual .key-visual-text.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.key-visual .key-visual-text .sub-text {
+  font-size: 0.6em; /* 親要素のフォントサイズに対する割合 */
+  letter-spacing: 0.1em;
+  display: block; /* 改行した時に揃いやすくする */
+}
+@media (max-width: 1024px) {
+  .key-visual .key-visual-text {
+    font-size: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .key-visual .key-visual-text {
+    font-size: 32px;
+    letter-spacing: 0.12em;
+  }
+}
+@media (max-width: 480px) {
+  .key-visual .key-visual-text {
+    font-size: 22px;
+    letter-spacing: 0.08em;
+  }
+}
+@media (max-width: 768px) {
+  .key-visual {
+    height: 75vh;
+  }
+}
+@media (max-width: 480px) {
+  .key-visual {
+    height: 65vh;
+    padding-top: 50px;
+  }
+}
+
+footer {
+  height: 60px; /* 固定高さ */
+  width: 100%;
+  text-align: center;
+  line-height: 60px; /* 高さに合わせて縦中央 */
+  color: #fff;
+  letter-spacing: 0.1rem;
+}
+
+.content {
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20vh;
+  padding-bottom: 15vh;
+  letter-spacing: 0.1rem;
+}
+.content h2 {
+  font-size: 36px;
+  padding-bottom: 20px;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .content {
+    padding-top: 15vh;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .content {
+    max-width: 92%;
+    padding-top: 12vh;
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .header-nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .header-nav.active {
+    transform: translateY(0);
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.profile-section .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 40px;
+}
+.profile-section .profile-text h3 {
+  font-size: 24px;
+  margin: 0;
+}
+.profile-section .profile-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .profile-section .profile-image {
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+  }
+  .profile-section .profile-text h3 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .profile-section .profile-image {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  .profile-section .profile-text p {
+    font-size: 14px;
+  }
+}
+
+.skills-section {
+  margin-bottom: 40px;
+}
+.skills-section h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.skills-section .skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skills-section .skill-item {
+  background-color: #515151;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.skills-section .skill-item svg {
+  width: 16px;
+  height: auto;
+  vertical-align: middle;
+}
+@media (max-width: 480px) {
+  .skills-section .skill-item {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .work-grid {
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.work-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+.work-item:hover {
+  transform: translateY(-10px);
+}
+.work-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+.work-item:hover img {
+  transform: scale(1.05);
+}
+.work-item .work-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.work-item .work-overlay h3 {
+  font-size: 24px;
+  margin: 0;
+}
+.work-item .work-overlay p {
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+.work-item:hover .work-overlay {
+  opacity: 1;
+}
+
+.contact-form {
+  text-align: left;
+  margin-top: 40px;
+}
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  color: black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.contact-form input::-moz-placeholder, .contact-form textarea::-moz-placeholder {
+  color: #ccc;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ccc;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+.contact-form .submit-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #7aceff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.contact-form .submit-button:hover {
+  background-color: #6a4dff;
+}
+@media (max-width: 480px) {
+  .contact-form .submit-button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+.main-spacer {
+  height: 80px;
+}
+
+@media (max-width: 768px) {
+  .main-spacer {
+    height: 70px;
+  }
+}
+@media (max-width: 480px) {
+  .main-spacer {
+    height: 64px;
+  }
+}/*# sourceMappingURL=style.css.map */

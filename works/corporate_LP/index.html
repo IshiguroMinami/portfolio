@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テックラボ・ソリューションズ株式会社</title>
+    <link rel="stylesheet" href="../corporate_LP/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">
+                <a href="#">TechLab Solutions</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">会社概要</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>未来を、テクノロジーで創造する</h2>
+            <p>革新的なソリューションで、あなたのビジネスに新たな価値を。</p>
+            <a href="#contact" class="btn">お問い合わせはこちら</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>会社概要</h2>
+            <div class="about-content">
+                <div class="text">
+                    <p>テックラボ・ソリューションズは、最新のテクノロジーを駆使し、企業のDX推進を強力にサポートするIT企業です。クラウドインテグレーション、AI開発、セキュリティコンサルティングなど、多岐にわたるサービスを提供しています。お客様の課題に真摯に向き合い、最適なソリューションを提供することをお約束します。</p>
+                </div>
+                <div class="image-wrapper">
+                    <img src="../corporate_LP/img/pexels-seven11nash-380768.jpg" alt="会社のオフィス">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section bg-light">
+        <div class="container">
+            <h2>サービス</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <img src="../corporate_LP/img/pexels-craigmdennis-57007.jpg" alt="クラウドインテグレーション">
+                    <h3>クラウドインテグレーション</h3>
+                    <p>AWS, Azure, GCPを活用したクラウド環境の設計・構築・運用をサポートします。</p>
+                </div>
+                <div class="service-item">
+                    <img src="../corporate_LP/img/pexels-divinetechygirl-1181316.jpg" alt="AI開発">
+                    <h3>AI開発</h3>
+                    <p>業務効率化のためのAIモデル開発や、データ分析ソリューションを提供します。</p>
+                </div>
+                <div class="service-item">
+                    <img src="../corporate_LP/img/pexels-thisisengineering-3861958.jpg" alt="セキュリティコンサルティング">
+                    <h3>セキュリティコンサルティング</h3>
+                    <p>情報セキュリティリスクを評価し、強固なセキュリティ体制を構築します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>お問い合わせ</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">お名前</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">お問い合わせ内容</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">送信</button>
+            </form>
+            <div id="form-message" class="hidden"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TechLab Solutions Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../corporate_LP/js/app.js"></script>
+</body>
+</html>

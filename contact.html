@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Minami Ishiguro Portfolio</title>
+    <link rel="icon" href="../portfolio/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="../portfolio/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">
+            <a href="../portfolio/index.html">
+                <img src="../portfolio/img/logo.png" alt="Minami Ishiguro Portfolio Logo">
+            </a>
+        </div>
+        <!-- ハンバーガーボタン -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="header-nav" id="nav">
+            <ul>
+                <li><a href="../portfolio/about.html">ABOUT</a></li>
+                <li><a href="../portfolio/work.html">WORK</a></li>
+                <li><a href="../portfolio/contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h2>CONTACT</h2>
+        <p>ご質問やご相談など、お気軽にお問い合わせください。</p>
+
+        <form class="contact-form" action="送信先URL" method="POST">
+            <div class="form-group">
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">お問い合わせ内容</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">送信</button>
+        </form>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 Minami Ishiguro Portfolio</p>
+    </footer>
+
+</body>
+<script src="../portfolio/js/app.js"></script>
+</html>
