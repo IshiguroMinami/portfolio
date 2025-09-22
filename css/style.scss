@@ -161,6 +161,9 @@ footer {
   color: #fff;
   letter-spacing: 0.1rem;
   }
+  footer p {
+    margin: 0;
+  }
 
 // Content wrapper
 .content {
@@ -171,6 +174,7 @@ footer {
   padding-top: 20vh;
   padding-bottom: 15vh;
   letter-spacing: 0.1rem;
+  margin-top: 58px;
 
   h2 {
     font-size: 36px;
@@ -229,7 +233,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     background: #ccc;
     display: flex;
     flex-direction: column;
@@ -375,67 +379,98 @@ footer {
 }
 
 // Contact form
-// Contact form
-.contact-form {
-  text-align: left;
-  margin-top: 40px;
 
-  .form-group {
-    margin-bottom: 20px;
+// .contact-form {
+//   text-align: left;
+//   margin-top: 40px;
+
+  // .form-group {
+  //   margin-bottom: 20px;
+  // }
+
+  // label {
+  //   display: block;
+  //   margin-bottom: 8px;
+  //   font-weight: bold;
+  // }
+
+  // input,
+  // textarea {
+  //   width: 100%;
+  //   padding: 12px;
+  //   border: 1px solid #ccc;
+  //   color: black; // 入力文字の色
+  //   border-radius: 4px;
+  //   box-sizing: border-box;
+  //   background-color: rgba(255, 255, 255, 0.6); // 半透明の黒背景で文字を見やすく
+  // }
+
+  .content_contact {
+    margin-top: 58px;
   }
-
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    color: black; // 入力文字の色
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.6); // 半透明の黒背景で文字を見やすく
-  }
-
-  // placeholder の色
-  input::placeholder,
-  textarea::placeholder {
-    color: #ccc;
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 150px;
-  }
-
-  .submit-button {
-    width: 100%;
-    padding: 15px;
-    background-color: #7aceff;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
+  .address-area {
+    display: inline-block;
+    background-color: #5683ff; /* ボタンの色 */
+    color: #ffffff;              /* 文字色 */
+    padding: 12px 24px;
+    border-radius: 20px;       /* 角丸 */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #6a4dff;
-    }
+    text-decoration: none;    /* 下線消し */
+    box-shadow: 0 4px 6px rgba(35, 35, 35, 0.2); /* 影をつけて立体感 */
+    margin: 10vh;
   }
-
-  @include respond-to(sm) {
-    .submit-button {
-      padding: 12px;
-      font-size: 15px;
-    }
+  
+  .address-area:hover {
+    background-color: #005fa3; /* ホバー時の色 */
+    transform: translateY(-2px); /* ちょっと浮く */
   }
-}
+  
+  .address-area address {
+    margin: 0;           /* 余白をリセット */
+    font-style: normal;  /* address要素の斜体を解除 */
+  }
+  
+
+  // placeholder の色
+  // input::placeholder,
+  // textarea::placeholder {
+  //   color: #ccc;
+  // }
+
+  // textarea {
+  //   resize: vertical;
+  //   min-height: 150px;
+  // }
+
+  // .submit-button {
+  //   width: 100%;
+  //   padding: 15px;
+  //   background-color: #7aceff;
+  //   color: #ffffff;
+  //   border: none;
+  //   border-radius: 4px;
+  //   font-size: 16px;
+  //   font-weight: bold;
+  //   cursor: pointer;
+  //   transition: background-color 0.3s;
+
+  //   &:hover {
+  //     background-color: #6a4dff;
+  //   }
+  // }
+
+
+  // @include respond-to(sm) {
+  //   .submit-button {
+  //     padding: 12px;
+  //     font-size: 15px;
+  //   }
+  // }
+// }
 
 
 // Utility: adjust content spacing when header is fixed
