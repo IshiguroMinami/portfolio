@@ -211,7 +211,7 @@ footer p {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: 100vh;
     background: #ccc;
     display: flex;
     flex-direction: column;
@@ -366,12 +366,12 @@ footer p {
   transition: opacity 0.3s ease-in-out;
 }
 .work-item .work-overlay h3 {
-  font-size: 24px;
+  font-size: 20px;
   margin: 0;
 }
 .work-item .work-overlay p {
-  font-size: 14px;
-  margin: 5px 0 0;
+  font-size: 12px;
+  margin: 5px 5px 0;
 }
 .work-item:hover .work-overlay {
   opacity: 1;
