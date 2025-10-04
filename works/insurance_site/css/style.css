@@ -91,9 +91,17 @@ section {
   min-width: 250px;
 }
 
-.icon {
-  margin-right: 10px;
+/* 2. アイコンコンテナ（<i>）内のSVGの設定 */
+li .icon svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  
+  vertical-align: -0.1em; 
+  
+  margin-right: 0.5em; 
 }
+
 
 /* 解決策セクション */
 .solution-section {
